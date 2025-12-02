@@ -1,19 +1,17 @@
-import { ReactNode } from "react";
-import Footer from "./Footer";
+import { LayoutProps } from "@/interface";
 import Header from "./Header";
+import Footer from "./Footer";
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <main>{children}</main>
-      <Footer />
-    </>
-  );
-};
 
-export default Layout;
+      <main className="flex-1">
+        {children}
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
